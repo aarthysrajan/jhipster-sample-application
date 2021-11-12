@@ -1,0 +1,117 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-photo-heading"
+        data-cy="PhotoCreateUpdateHeading"
+        jhiTranslate="jhipsterSampleApplicationApp.photo.home.createOrEditLabel"
+      >
+        Create or edit a Photo
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.photo.photoId" for="field_photoId">Photo Id</label>
+          <input type="number" class="form-control" name="photoId" id="field_photoId" data-cy="photoId" formControlName="photoId" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.photo.userId" for="field_userId">User Id</label>
+          <input type="number" class="form-control" name="userId" id="field_userId" data-cy="userId" formControlName="userId" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.photo.picRating" for="field_picRating"
+            >Pic Rating</label
+          >
+          <input type="number" class="form-control" name="picRating" id="field_picRating" data-cy="picRating" formControlName="picRating" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.photo.genre" for="field_genre">Genre</label>
+          <input type="text" class="form-control" name="genre" id="field_genre" data-cy="genre" formControlName="genre" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.photo.description" for="field_description"
+            >Description</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="description"
+            id="field_description"
+            data-cy="description"
+            formControlName="description"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.photo.inContest" for="field_inContest"
+            >In Contest</label
+          >
+          <input type="checkbox" class="form-check" name="inContest" id="field_inContest" data-cy="inContest" formControlName="inContest" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.photo.contestId" for="field_contestId"
+            >Contest Id</label
+          >
+          <input type="number" class="form-control" name="contestId" id="field_contestId" data-cy="contestId" formControlName="contestId" />
+        </div>
+
+        <div class="form-group">
+          <label jhiTranslate="jhipsterSampleApplicationApp.photo.contest" for="field_contests">Contest</label>
+          <select class="form-control" id="field_contests" data-cy="contest" multiple name="contests" formControlName="contests">
+            <option
+              [ngValue]="getSelectedContest(contestOption, editForm.get('contests')!.value)"
+              *ngFor="let contestOption of contestsSharedCollection; trackBy: trackContestById"
+            >
+              {{ contestOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.photo.participant" for="field_participant"
+            >Participant</label
+          >
+          <select class="form-control" id="field_participant" data-cy="participant" name="participant" formControlName="participant">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                participantOption.id === editForm.get('participant')!.value?.id ? editForm.get('participant')!.value : participantOption
+              "
+              *ngFor="let participantOption of participantsSharedCollection; trackBy: trackParticipantById"
+            >
+              {{ participantOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,90 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="contest">
+      <h2 data-cy="contestDetailsHeading"><span jhiTranslate="jhipsterSampleApplicationApp.contest.detail.title">Contest</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ contest.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.contest.contestId">Contest Id</span></dt>
+        <dd>
+          <span>{{ contest.contestId }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.contest.contestName">Contest Name</span></dt>
+        <dd>
+          <span>{{ contest.contestName }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.contest.contestDescription">Contest Description</span></dt>
+        <dd>
+          <span>{{ contest.contestDescription }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.contest.ownerId">Owner Id</span></dt>
+        <dd>
+          <span>{{ contest.ownerId }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.contest.organization">Organization</span></dt>
+        <dd>
+          <span>{{ contest.organization }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.contest.emailId">Email Id</span></dt>
+        <dd>
+          <span>{{ contest.emailId }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.contest.contactNo">Contact No</span></dt>
+        <dd>
+          <span>{{ contest.contactNo }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.contest.startDate">Start Date</span></dt>
+        <dd>
+          <span>{{ contest.startDate | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.contest.endDate">End Date</span></dt>
+        <dd>
+          <span>{{ contest.endDate | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.contest.isActive">Is Active</span></dt>
+        <dd>
+          <span>{{ contest.isActive }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.contest.noOfPhotos">No Of Photos</span></dt>
+        <dd>
+          <span>{{ contest.noOfPhotos }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.contest.noOfParticipants">No Of Participants</span></dt>
+        <dd>
+          <span>{{ contest.noOfParticipants }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.contest.winnerId">Winner Id</span></dt>
+        <dd>
+          <span>{{ contest.winnerId }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.contest.publicVoting">Public Voting</span></dt>
+        <dd>
+          <span>{{ contest.publicVoting }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.contest.participant">Participant</span></dt>
+        <dd>
+          <div *ngIf="contest.participant">
+            <a [routerLink]="['/participant', contest.participant?.id, 'view']">{{ contest.participant?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/contest', contest.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

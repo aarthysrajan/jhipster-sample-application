@@ -1,0 +1,225 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-contest-heading"
+        data-cy="ContestCreateUpdateHeading"
+        jhiTranslate="jhipsterSampleApplicationApp.contest.home.createOrEditLabel"
+      >
+        Create or edit a Contest
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.contest.contestId" for="field_contestId"
+            >Contest Id</label
+          >
+          <input type="number" class="form-control" name="contestId" id="field_contestId" data-cy="contestId" formControlName="contestId" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.contest.contestName" for="field_contestName"
+            >Contest Name</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="contestName"
+            id="field_contestName"
+            data-cy="contestName"
+            formControlName="contestName"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="jhipsterSampleApplicationApp.contest.contestDescription"
+            for="field_contestDescription"
+            >Contest Description</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="contestDescription"
+            id="field_contestDescription"
+            data-cy="contestDescription"
+            formControlName="contestDescription"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.contest.ownerId" for="field_ownerId">Owner Id</label>
+          <input type="number" class="form-control" name="ownerId" id="field_ownerId" data-cy="ownerId" formControlName="ownerId" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.contest.organization" for="field_organization"
+            >Organization</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="organization"
+            id="field_organization"
+            data-cy="organization"
+            formControlName="organization"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.contest.emailId" for="field_emailId">Email Id</label>
+          <input type="text" class="form-control" name="emailId" id="field_emailId" data-cy="emailId" formControlName="emailId" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.contest.contactNo" for="field_contactNo"
+            >Contact No</label
+          >
+          <input type="number" class="form-control" name="contactNo" id="field_contactNo" data-cy="contactNo" formControlName="contactNo" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.contest.startDate" for="field_startDate"
+            >Start Date</label
+          >
+          <div class="input-group">
+            <input
+              id="field_startDate"
+              data-cy="startDate"
+              type="text"
+              class="form-control"
+              name="startDate"
+              ngbDatepicker
+              #startDateDp="ngbDatepicker"
+              formControlName="startDate"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="startDateDp.toggle()">
+                <fa-icon icon="calendar-alt"></fa-icon>
+              </button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.contest.endDate" for="field_endDate">End Date</label>
+          <div class="input-group">
+            <input
+              id="field_endDate"
+              data-cy="endDate"
+              type="text"
+              class="form-control"
+              name="endDate"
+              ngbDatepicker
+              #endDateDp="ngbDatepicker"
+              formControlName="endDate"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="endDateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.contest.isActive" for="field_isActive"
+            >Is Active</label
+          >
+          <input type="checkbox" class="form-check" name="isActive" id="field_isActive" data-cy="isActive" formControlName="isActive" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.contest.noOfPhotos" for="field_noOfPhotos"
+            >No Of Photos</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="noOfPhotos"
+            id="field_noOfPhotos"
+            data-cy="noOfPhotos"
+            formControlName="noOfPhotos"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="jhipsterSampleApplicationApp.contest.noOfParticipants"
+            for="field_noOfParticipants"
+            >No Of Participants</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="noOfParticipants"
+            id="field_noOfParticipants"
+            data-cy="noOfParticipants"
+            formControlName="noOfParticipants"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.contest.winnerId" for="field_winnerId"
+            >Winner Id</label
+          >
+          <input type="text" class="form-control" name="winnerId" id="field_winnerId" data-cy="winnerId" formControlName="winnerId" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.contest.publicVoting" for="field_publicVoting"
+            >Public Voting</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="publicVoting"
+            id="field_publicVoting"
+            data-cy="publicVoting"
+            formControlName="publicVoting"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.contest.participant" for="field_participant"
+            >Participant</label
+          >
+          <select class="form-control" id="field_participant" data-cy="participant" name="participant" formControlName="participant">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                participantOption.id === editForm.get('participant')!.value?.id ? editForm.get('participant')!.value : participantOption
+              "
+              *ngFor="let participantOption of participantsSharedCollection; trackBy: trackParticipantById"
+            >
+              {{ participantOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

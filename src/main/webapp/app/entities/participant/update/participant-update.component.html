@@ -1,0 +1,176 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-participant-heading"
+        data-cy="ParticipantCreateUpdateHeading"
+        jhiTranslate="jhipsterSampleApplicationApp.participant.home.createOrEditLabel"
+      >
+        Create or edit a Participant
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.participant.fName" for="field_fName">F Name</label>
+          <input type="text" class="form-control" name="fName" id="field_fName" data-cy="fName" formControlName="fName" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.participant.mName" for="field_mName">M Name</label>
+          <input type="text" class="form-control" name="mName" id="field_mName" data-cy="mName" formControlName="mName" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.participant.lName" for="field_lName">L Name</label>
+          <input type="text" class="form-control" name="lName" id="field_lName" data-cy="lName" formControlName="lName" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.participant.userName" for="field_userName"
+            >User Name</label
+          >
+          <input type="text" class="form-control" name="userName" id="field_userName" data-cy="userName" formControlName="userName" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.participant.userId" for="field_userId"
+            >User Id</label
+          >
+          <input type="number" class="form-control" name="userId" id="field_userId" data-cy="userId" formControlName="userId" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.participant.dob" for="field_dob">Dob</label>
+          <div class="input-group">
+            <input
+              id="field_dob"
+              data-cy="dob"
+              type="text"
+              class="form-control"
+              name="dob"
+              ngbDatepicker
+              #dobDp="ngbDatepicker"
+              formControlName="dob"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="dobDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.participant.emailId" for="field_emailId"
+            >Email Id</label
+          >
+          <input type="text" class="form-control" name="emailId" id="field_emailId" data-cy="emailId" formControlName="emailId" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.participant.phoneNo" for="field_phoneNo"
+            >Phone No</label
+          >
+          <input type="number" class="form-control" name="phoneNo" id="field_phoneNo" data-cy="phoneNo" formControlName="phoneNo" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.participant.noOfPhotos" for="field_noOfPhotos"
+            >No Of Photos</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="noOfPhotos"
+            id="field_noOfPhotos"
+            data-cy="noOfPhotos"
+            formControlName="noOfPhotos"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.participant.profilePic" for="field_profilePic"
+            >Profile Pic</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="profilePic"
+            id="field_profilePic"
+            data-cy="profilePic"
+            formControlName="profilePic"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.participant.userRating" for="field_userRating"
+            >User Rating</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="userRating"
+            id="field_userRating"
+            data-cy="userRating"
+            formControlName="userRating"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="jhipsterSampleApplicationApp.participant.noOfContestsParticipated"
+            for="field_noOfContestsParticipated"
+            >No Of Contests Participated</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="noOfContestsParticipated"
+            id="field_noOfContestsParticipated"
+            data-cy="noOfContestsParticipated"
+            formControlName="noOfContestsParticipated"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="jhipsterSampleApplicationApp.participant.noOfContestsWon"
+            for="field_noOfContestsWon"
+            >No Of Contests Won</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="noOfContestsWon"
+            id="field_noOfContestsWon"
+            data-cy="noOfContestsWon"
+            formControlName="noOfContestsWon"
+          />
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

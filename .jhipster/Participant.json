@@ -1,0 +1,81 @@
+{
+  "name": "Participant",
+  "fields": [
+    {
+      "fieldName": "fName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "mName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "userName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "userId",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "dob",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "emailId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "phoneNo",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "noOfPhotos",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "profilePic",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "userRating",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "noOfContestsParticipated",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "noOfContestsWon",
+      "fieldType": "Long"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "photo",
+      "otherEntityRelationshipName": "participant",
+      "relationshipName": "photo"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "contest",
+      "otherEntityRelationshipName": "participant",
+      "relationshipName": "contest"
+    }
+  ],
+  "entityTableName": "participant",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20211112014759"
+}

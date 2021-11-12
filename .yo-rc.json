@@ -44,7 +44,9 @@
     "clientTheme": "none",
     "clientThemeVariant": "",
     "reactive": false,
-    "enableGradleEnterprise": false
+    "enableGradleEnterprise": false,
+    "entities": ["Participant", "Photo", "Contest"],
+    "lastLiquibaseTimestamp": 1636681681000
   },
   "git-provider": "GitHub",
   "git-company": "aarthysrajan",

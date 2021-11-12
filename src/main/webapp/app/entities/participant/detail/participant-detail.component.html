@@ -1,0 +1,82 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="participant">
+      <h2 data-cy="participantDetailsHeading">
+        <span jhiTranslate="jhipsterSampleApplicationApp.participant.detail.title">Participant</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ participant.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.participant.fName">F Name</span></dt>
+        <dd>
+          <span>{{ participant.fName }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.participant.mName">M Name</span></dt>
+        <dd>
+          <span>{{ participant.mName }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.participant.lName">L Name</span></dt>
+        <dd>
+          <span>{{ participant.lName }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.participant.userName">User Name</span></dt>
+        <dd>
+          <span>{{ participant.userName }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.participant.userId">User Id</span></dt>
+        <dd>
+          <span>{{ participant.userId }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.participant.dob">Dob</span></dt>
+        <dd>
+          <span>{{ participant.dob | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.participant.emailId">Email Id</span></dt>
+        <dd>
+          <span>{{ participant.emailId }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.participant.phoneNo">Phone No</span></dt>
+        <dd>
+          <span>{{ participant.phoneNo }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.participant.noOfPhotos">No Of Photos</span></dt>
+        <dd>
+          <span>{{ participant.noOfPhotos }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.participant.profilePic">Profile Pic</span></dt>
+        <dd>
+          <span>{{ participant.profilePic }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.participant.userRating">User Rating</span></dt>
+        <dd>
+          <span>{{ participant.userRating }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.participant.noOfContestsParticipated">No Of Contests Participated</span></dt>
+        <dd>
+          <span>{{ participant.noOfContestsParticipated }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.participant.noOfContestsWon">No Of Contests Won</span></dt>
+        <dd>
+          <span>{{ participant.noOfContestsWon }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/participant', participant.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>
