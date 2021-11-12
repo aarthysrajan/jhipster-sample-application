@@ -1,0 +1,60 @@
+/* User Entity */
+entity Participant {
+	fName String
+  	mName String
+    lName String
+    userName String
+    userId Long
+    dob LocalDate
+    emailId String
+    phoneNo Long
+    noOfPhotos Long
+    profilePic String
+    userRating Integer
+    noOfContestsParticipated Long
+    noOfContestsWon Long
+}
+
+/* Photos Entity */
+entity Photo {
+	photoId Long
+    userId Long // who uploaded
+    picRating Integer
+    genre String
+    description String // to search with
+    inContest Boolean
+    contestId Long
+}
+
+entity Contest {
+	contestId Long
+    contestName String
+    contestDescription String
+    ownerId Long // will be the userId of the person who created the contest
+    organization String
+    emailId String
+    contactNo Long
+    startDate LocalDate
+    endDate LocalDate
+    isActive Boolean
+    noOfPhotos Long
+    noOfParticipants Long
+    winnerId String
+    publicVoting Boolean
+}
+
+relationship OneToMany {
+	Participant to Photo
+}
+
+relationship OneToMany {
+    Participant to Contest
+}
+
+relationship ManyToMany {
+	Photo to Contest
+}
+
+// Set pagination options
+paginate Photo with infinite-scroll
+paginate Contest with pagination

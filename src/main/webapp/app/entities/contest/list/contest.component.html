@@ -1,0 +1,160 @@
+<div>
+  <h2 id="page-heading" data-cy="ContestHeading">
+    <span jhiTranslate="jhipsterSampleApplicationApp.contest.home.title">Contests</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadPage()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="jhipsterSampleApplicationApp.contest.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-contest"
+        [routerLink]="['/contest/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="jhipsterSampleApplicationApp.contest.home.createLabel"> Create a new Contest </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="contests?.length === 0">
+    <span jhiTranslate="jhipsterSampleApplicationApp.contest.home.notFound">No contests found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="contests && contests.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="loadPage()">
+          <th scope="col" jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="contestId">
+            <span jhiTranslate="jhipsterSampleApplicationApp.contest.contestId">Contest Id</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="contestName">
+            <span jhiTranslate="jhipsterSampleApplicationApp.contest.contestName">Contest Name</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="contestDescription">
+            <span jhiTranslate="jhipsterSampleApplicationApp.contest.contestDescription">Contest Description</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="ownerId">
+            <span jhiTranslate="jhipsterSampleApplicationApp.contest.ownerId">Owner Id</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="organization">
+            <span jhiTranslate="jhipsterSampleApplicationApp.contest.organization">Organization</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="emailId">
+            <span jhiTranslate="jhipsterSampleApplicationApp.contest.emailId">Email Id</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="contactNo">
+            <span jhiTranslate="jhipsterSampleApplicationApp.contest.contactNo">Contact No</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="startDate">
+            <span jhiTranslate="jhipsterSampleApplicationApp.contest.startDate">Start Date</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="endDate">
+            <span jhiTranslate="jhipsterSampleApplicationApp.contest.endDate">End Date</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="isActive">
+            <span jhiTranslate="jhipsterSampleApplicationApp.contest.isActive">Is Active</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="noOfPhotos">
+            <span jhiTranslate="jhipsterSampleApplicationApp.contest.noOfPhotos">No Of Photos</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="noOfParticipants">
+            <span jhiTranslate="jhipsterSampleApplicationApp.contest.noOfParticipants">No Of Participants</span>
+            <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="winnerId">
+            <span jhiTranslate="jhipsterSampleApplicationApp.contest.winnerId">Winner Id</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="publicVoting">
+            <span jhiTranslate="jhipsterSampleApplicationApp.contest.publicVoting">Public Voting</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="participant.id">
+            <span jhiTranslate="jhipsterSampleApplicationApp.contest.participant">Participant</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let contest of contests; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/contest', contest.id, 'view']">{{ contest.id }}</a>
+          </td>
+          <td>{{ contest.contestId }}</td>
+          <td>{{ contest.contestName }}</td>
+          <td>{{ contest.contestDescription }}</td>
+          <td>{{ contest.ownerId }}</td>
+          <td>{{ contest.organization }}</td>
+          <td>{{ contest.emailId }}</td>
+          <td>{{ contest.contactNo }}</td>
+          <td>{{ contest.startDate | formatMediumDate }}</td>
+          <td>{{ contest.endDate | formatMediumDate }}</td>
+          <td>{{ contest.isActive }}</td>
+          <td>{{ contest.noOfPhotos }}</td>
+          <td>{{ contest.noOfParticipants }}</td>
+          <td>{{ contest.winnerId }}</td>
+          <td>{{ contest.publicVoting }}</td>
+          <td>
+            <div *ngIf="contest.participant">
+              <a [routerLink]="['/participant', contest.participant?.id, 'view']">{{ contest.participant?.id }}</a>
+            </div>
+          </td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/contest', contest.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/contest', contest.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(contest)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="contests && contests.length > 0">
+    <div class="row justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="row justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [(page)]="ngbPaginationPage"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="loadPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "photo": {
+      "home": {
+        "title": "Photos",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Photo",
+        "createOrEditLabel": "Create or edit a Photo",
+        "notFound": "No Photos found"
+      },
+      "created": "A new Photo is created with identifier {{ param }}",
+      "updated": "A Photo is updated with identifier {{ param }}",
+      "deleted": "A Photo is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Photo {{ id }}?"
+      },
+      "detail": {
+        "title": "Photo"
+      },
+      "id": "ID",
+      "photoId": "Photo Id",
+      "userId": "User Id",
+      "picRating": "Pic Rating",
+      "genre": "Genre",
+      "description": "Description",
+      "inContest": "In Contest",
+      "contestId": "Contest Id",
+      "contest": "Contest",
+      "participant": "Participant"
+    }
+  }
+}

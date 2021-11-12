@@ -1,0 +1,86 @@
+{
+  "name": "Contest",
+  "fields": [
+    {
+      "fieldName": "contestId",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "contestName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "contestDescription",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "ownerId",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "organization",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "emailId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "contactNo",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "startDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "endDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "isActive",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "noOfPhotos",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "noOfParticipants",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "winnerId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "publicVoting",
+      "fieldType": "Boolean"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "participant",
+      "otherEntityRelationshipName": "contest",
+      "relationshipName": "participant"
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "photo",
+      "otherEntityRelationshipName": "contest",
+      "relationshipName": "photo",
+      "ownerSide": false
+    }
+  ],
+  "entityTableName": "contest",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20211112014801"
+}

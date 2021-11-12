@@ -1,0 +1,69 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="photo">
+      <h2 data-cy="photoDetailsHeading"><span jhiTranslate="jhipsterSampleApplicationApp.photo.detail.title">Photo</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ photo.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.photo.photoId">Photo Id</span></dt>
+        <dd>
+          <span>{{ photo.photoId }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.photo.userId">User Id</span></dt>
+        <dd>
+          <span>{{ photo.userId }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.photo.picRating">Pic Rating</span></dt>
+        <dd>
+          <span>{{ photo.picRating }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.photo.genre">Genre</span></dt>
+        <dd>
+          <span>{{ photo.genre }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.photo.description">Description</span></dt>
+        <dd>
+          <span>{{ photo.description }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.photo.inContest">In Contest</span></dt>
+        <dd>
+          <span>{{ photo.inContest }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.photo.contestId">Contest Id</span></dt>
+        <dd>
+          <span>{{ photo.contestId }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.photo.contest">Contest</span></dt>
+        <dd>
+          <span *ngFor="let contest of photo.contests; let last = last">
+            <a [routerLink]="['/contest', contest?.id, 'view']">{{ contest.id }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterSampleApplicationApp.photo.participant">Participant</span></dt>
+        <dd>
+          <div *ngIf="photo.participant">
+            <a [routerLink]="['/participant', photo.participant?.id, 'view']">{{ photo.participant?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/photo', photo.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "contest": {
+      "home": {
+        "title": "Contests",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Contest",
+        "createOrEditLabel": "Create or edit a Contest",
+        "notFound": "No Contests found"
+      },
+      "created": "A new Contest is created with identifier {{ param }}",
+      "updated": "A Contest is updated with identifier {{ param }}",
+      "deleted": "A Contest is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Contest {{ id }}?"
+      },
+      "detail": {
+        "title": "Contest"
+      },
+      "id": "ID",
+      "contestId": "Contest Id",
+      "contestName": "Contest Name",
+      "contestDescription": "Contest Description",
+      "ownerId": "Owner Id",
+      "organization": "Organization",
+      "emailId": "Email Id",
+      "contactNo": "Contact No",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "isActive": "Is Active",
+      "noOfPhotos": "No Of Photos",
+      "noOfParticipants": "No Of Participants",
+      "winnerId": "Winner Id",
+      "publicVoting": "Public Voting",
+      "participant": "Participant",
+      "photo": "Photo"
+    }
+  }
+}

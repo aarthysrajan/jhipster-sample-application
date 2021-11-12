@@ -1,0 +1,58 @@
+{
+  "name": "Photo",
+  "fields": [
+    {
+      "fieldName": "photoId",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "userId",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "picRating",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "genre",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "inContest",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "contestId",
+      "fieldType": "Long"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "contest",
+      "otherEntityRelationshipName": "photo",
+      "relationshipName": "contest",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "participant",
+      "otherEntityRelationshipName": "photo",
+      "relationshipName": "participant"
+    }
+  ],
+  "entityTableName": "photo",
+  "dto": "no",
+  "pagination": "infinite-scroll",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20211112014800"
+}
